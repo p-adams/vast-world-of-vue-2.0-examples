@@ -9,25 +9,46 @@
     <div class="container">
         <div id="tasks">
             <div>
-                <h1>Tasks ({{tasks.length}})</h1>
+                <div v-show="inProgress.length">
+                <h1>Tasks ({{inProgress.length}})</h1>
+                </div>
                 <ol class="list-group">
-                    <li v-for="task in tasks"
+                    <li v-for="task in inProgress"
                         class="list-group-item"
                     >
-                        {{task.body}}
+                        <span @dblclick="editTask(task)">{{task.body}}</span>
                         <button @click="removeTask(task)">&#10007</button>
+                        <button @click="toggleTaskCompletion(task)">&#10004</button>
                     </li>
                 </ol>
             </div>
             <form @submit="addTask">
                 <div class="form-group">
                     <input  v-model="newTask"
+                            ref="newTask"
                             class="form-control"
                             placeholder="I need to..."
                     >
                 </div>
                 <button class="btn btn-primary">Add Task</button>
+                <button class="btn btn-default"
+                        @click="completeAll"
+                >Mark All As Completed?</button>
             </form>
+            <div v-if="completions.length">
+                <h2>Completed ({{completions.length}})</h2>
+                <ol class="list-group">
+                    <li v-for="task in completions"
+                        class="list-group-item"
+                    >
+                        {{task.body}}
+                        <button @click="toggleTaskCompletion(task)">&#10007</button>
+                    </li>
+                </ol>
+                <button class="btn btn-danger"
+                        @click="clearCompleted"
+                >Clear Completed</button>
+            </div>
         </div>
     </div>
 

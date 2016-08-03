@@ -1,3 +1,6 @@
+#tasks{
+    margin: 2em 0;
+}
 li button{
     font-weight: bold;
     background: none;
@@ -5,4 +8,5 @@ li button{
     color: red;
     padding: 0;
     float: right;
+    margin-left: 10px;
 }
