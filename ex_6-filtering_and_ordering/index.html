@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filtering and Ordering</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <input
+                class="form-control"
+                v-model.number="searchDetails"
+                placeholder="filter by name or age"
+                >
+        <table class="table table-striped">
+        <thead>
+            <th v-for="column in columns">
+                <a href="#"
+                   v-bind:class="{'active': sortKey == column}"
+                   @click="sortBy(column)"
+                >{{column | capitalize}}</a>
+            </th>
+        </thead>
+        <tbody>
+            <tr v-for="person in filterIt">
+            <td>{{person.name}}</td>
+            <td>{{person.age}}</td>
+            
+            </tr>
+        </tbody>
+        </table>
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.0-beta.6/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
