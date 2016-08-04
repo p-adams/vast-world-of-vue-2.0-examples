@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event System</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <article id="post" class="container" v-show="isVisible">
+        <button class="glyphicon glyphicon-remove-sign pull-right" 
+                @click="isVisible = false"
+        ></button>
+        <h1>Some Post</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non sapien quis risus eleifend rutrum ut sit amet metus. Phasellus volutpat nulla sollicitudin, porta diam nec, lobortis odio. Sed a suscipit tortor. Fusce sed dictum massa, ac rhoncus tortor. Vivamus tempus augue tellus. Phasellus volutpat odio sagittis lacus iaculis, eu pellentesque eros venenatis. Pellentesque lacinia lorem vitae dolor viverra, id condimentum eros malesuada. Sed quis felis metus. </p>
+        <button type="button"
+            class="btn btn-default btn-lg"
+            v-bind:class="{'active': liked}"
+            @click="toggleLike"
+        >
+            <span class="glyphicon glyphicon-thumbs-up"></span> {{ likesCount }}
+        </button>
+    </article>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.0-beta.6/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
