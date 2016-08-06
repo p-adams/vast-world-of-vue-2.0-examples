@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Filters</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+
+        <!-- First custom filter example :
+            <h1>{{ message | reverse('wordsOnly') }}</h1>
+        -->
+        <div class="radio">
+            <label>
+                <input type="radio"
+                       name="gender"
+                       v-model="gender" 
+                       value="all"> All
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio"
+                       name="gender"
+                       v-model="gender" 
+                       value="male"> Male
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio"
+                       name="gender"
+                       v-model="gender" 
+                       value="female"> Female
+            </label>
+        </div>
+        <ul>
+            <li v-for="person in genderFilter">
+                {{person.name}} - {{person.gender}}
+            </li>
+        </ul>
+
+       
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.0-beta.6/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.14.1/lodash.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
