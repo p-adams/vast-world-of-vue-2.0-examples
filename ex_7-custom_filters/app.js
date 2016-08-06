@@ -11,7 +11,7 @@ Changes:
 
     3) Filtering rendered lists:
         0.12 & 1.0: people | gender
-        2.0: use computed property -> v-for="person in gender" ->
+        2.0: use computed property -> v-for="person in genderFilter" ->
             implement gender computed property (see ex. below)
 
 
